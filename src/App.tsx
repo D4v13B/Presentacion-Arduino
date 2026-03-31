@@ -4,6 +4,7 @@ import type { SlideBlock, SlideVisual } from './slides'
 import { SlideDiagram } from './SlideDiagrams'
 import { useTheme } from './useTheme'
 import type { Theme } from './useTheme'
+import { publicUrl } from './publicUrl'
 import './App.css'
 
 function Block({ block }: { block: SlideBlock }) {
@@ -92,7 +93,13 @@ function VisualBlock({ v }: { v: SlideVisual }) {
   return (
     <figure className="visual-block visual-block--image">
       <div className="visual-block__frame">
-        <img src={v.src} alt={v.alt} className="visual-block__img" loading="lazy" decoding="async" />
+        <img
+          src={publicUrl(v.src)}
+          alt={v.alt}
+          className="visual-block__img"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       {v.caption ? <figcaption className="visual-block__caption">{v.caption}</figcaption> : null}
     </figure>
