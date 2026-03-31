@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none" aria-hidden="true">
+  <rect width="200" height="80" rx="4" fill="#1e4a4c"/>
+  <rect x="8" y="10" width="120" height="60" rx="3" fill="#0a2a2c" stroke="#00979d" stroke-width="1.5"/>
+  <text x="68" y="46" text-anchor="middle" fill="#7ec9cc" font-family="system-ui,sans-serif" font-size="9">UNO R3</text>
+  <g fill="#00979d">
+    <rect x="138" y="16" width="6" height="6" rx="1"/><rect x="148" y="16" width="6" height="6" rx="1"/>
+    <rect x="158" y="16" width="6" height="6" rx="1"/><rect x="168" y="16" width="6" height="6" rx="1"/>
+    <rect x="178" y="16" width="6" height="6" rx="1"/>
+  </g>
+  <text x="170" y="58" text-anchor="middle" fill="#9cb8b6" font-family="system-ui,sans-serif" font-size="7">pines</text>
+</svg>

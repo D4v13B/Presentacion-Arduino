@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "web-interface-design": {
+      "source": "ratacat/claude-skills",
+      "sourceType": "github",
+      "computedHash": "a95ad6f3b5e2a42a8c14e324c2dced9f662356d61b7113bcba07ff8b30d0b5ae"
+    }
+  }
+}

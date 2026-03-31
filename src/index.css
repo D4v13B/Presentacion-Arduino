@@ -1,0 +1,76 @@
+/* Temas explícitos: data-theme en <html> (script en index.html evita parpadeo) */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --text: #3d4a49;
+  --text-muted: #6b7c7a;
+  --text-h: #0d1918;
+  --bg: #f0f5f4;
+  --bg-elevated: #f6f9f8;
+  --surface: #ffffff;
+  --surface-hover: #eef5f4;
+  --border: #c8d8d6;
+  --border-strong: #8aa9a5;
+  --code-bg: #e8f2f0;
+  --arduino: #00979d;
+  --arduino-muted: #5cb3b8;
+  --arduino-soft: rgba(0, 151, 157, 0.12);
+  --glow-a: rgba(0, 151, 157, 0.18);
+  --glow-b: rgba(92, 179, 184, 0.12);
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  font: 16px/1.5 var(--sans);
+  letter-spacing: 0.01em;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --text: #c8d4d3;
+  --text-muted: #8a9a98;
+  --text-h: #e8f0ef;
+  --bg: #121212;
+  --bg-elevated: #161a19;
+  --surface: #1e2423;
+  --surface-hover: #2a3230;
+  --border: #3d4846;
+  --border-strong: #5a6865;
+  --code-bg: #1a2221;
+  --arduino: #3db8bc;
+  --arduino-muted: #7ec9cc;
+  --arduino-soft: rgba(61, 184, 188, 0.14);
+  --glow-a: rgba(61, 184, 188, 0.15);
+  --glow-b: rgba(126, 201, 204, 0.08);
+}
+
+#root {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  min-height: 100svh;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--heading);
+}
+
+p {
+  margin: 0;
+}
