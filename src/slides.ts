@@ -1,3 +1,10 @@
+export type TimelineEntry = {
+  period: string
+  role: string
+  org: string
+  body: string
+}
+
 export type SlideBlock =
   | { type: 'bullets'; items: string[] }
   | { type: 'cards'; title?: string; items: { title: string; body: string }[] }
@@ -5,6 +12,14 @@ export type SlideBlock =
   | { type: 'code'; lines: string[] }
   | { type: 'qa'; items: { q: string; a: string }[] }
   | { type: 'tips'; items: string[] }
+  | {
+      type: 'profileTimeline'
+      name?: string
+      photo: { src: string; alt: string; caption?: string }
+      intro: string
+      timelineTitle?: string
+      entries: TimelineEntry[]
+    }
 
 export type SlideVisual =
   | { kind: 'image'; src: string; alt: string; caption?: string }
@@ -21,6 +36,87 @@ export type Slide = {
 }
 
 export const slides: Slide[] = [
+  {
+    id: 'welcome',
+    section: 'Bienvenida',
+    title: 'Bienvenidos',
+    visuals: [
+      {
+        kind: 'image',
+        src: '/images/RAS.jpeg',
+        alt: 'RAS',
+      },
+    ],
+    blocks: [],
+  },
+  {
+    id: 'aboutPresenter',
+    section: 'Sobre mí',
+    title: 'Sobre mí',
+    blocks: [
+      {
+        type: 'profileTimeline',
+        name: 'David Bustamante',
+        photo: {
+          src: '/yo_david.jpeg',
+          alt: 'David Bustamante, profesional de tecnología e IT',
+        },
+        intro:
+          'Analista de IT en Copa Airlines · Panamá. CEO y fundador de Panama Trust Bit Solutions: ERP, SaaS, integraciones y redes.',
+        timelineTitle: 'Experiencia',
+        entries: [
+          {
+            period: 'feb. 2026 – actualidad',
+            role: 'Analista de IT',
+            org: 'Copa Airlines',
+            body: 'Panamá · Híbrido. Comunicación, SQL y mejora de procesos con IA.',
+          },
+          {
+            period: 'ene. 2023 – actualidad',
+            role: 'CEO y fundador',
+            org: 'Panama Trust Bit Solutions',
+            body: 'ERP a medida (inventario, logística, facturación con trazabilidad). CRM/chatbot con WhatsApp (Express, TypeScript, React, Gemini). POS multisucursal; integraciones SAP B1, Zoho y Odoo; infra on-prem y cloud, redes LAN/WAN y VPN.',
+          },
+          {
+            period: 'oct. 2025 – feb. 2026',
+            role: 'Ingeniero de software',
+            org: 'WareLogic Solutions',
+            body: 'Híbrido. Liderazgo en WMS, APIs en tiempo real con almacén y ERPs (SAP, Zoho Books), redes LAN e impresoras de etiquetas; menos deuda técnica con flujos colaborativos en Git.',
+          },
+          {
+            period: 'may. 2025 – ago. 2025',
+            role: 'Desarrollador Full Stack',
+            org: 'Universidad Especializada de Las Américas',
+            body: 'Presencial. Infraestructura de software y desarrollo front end.',
+          },
+          {
+            period: 'feb. 2024 – jun. 2025',
+            role: 'Desarrollador y gestor de software',
+            org: 'Grupo ITEMU',
+            body: 'Presencial. Carga internacional, aduanas y facturación; QuickBooks y Zoho Books; apps móviles para logística.',
+          },
+          {
+            period: 'feb. 2022 – actualidad',
+            role: 'Diseñador de show de drones y plan de vuelo',
+            org: 'Panama Show Time FX',
+            body: 'Presencial. Shows con iluminación de drones, figuras en el cielo y logística de vuelo para eventos.',
+          },
+          {
+            period: 'oct. 2022 – nov. 2022',
+            role: 'Asistente técnico (mantenimiento y procesos)',
+            org: 'Estrella Azul',
+            body: 'Práctica profesional · Presencial. Electromecánica y controles eléctricos.',
+          },
+          {
+            period: 'dic. 2021 – abr. 2023',
+            role: 'Atención al cliente y ventas',
+            org: 'Comercio',
+            body: 'Jornada completa. Atención al cliente y liderazgo de equipos.',
+          },
+        ],
+      },
+    ],
+  },
   {
     id: 'cover',
     section: 'Introducción',

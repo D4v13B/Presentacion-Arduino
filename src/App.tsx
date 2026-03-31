@@ -77,6 +77,48 @@ function Block({ block }: { block: SlideBlock }) {
           </ul>
         </aside>
       )
+    case 'profileTimeline':
+      return (
+        <div className="profile-timeline">
+          <div className="profile-timeline__aside">
+            <figure className="profile-timeline__figure">
+              <div className="profile-timeline__frame">
+                <img
+                  src={publicUrl(block.photo.src)}
+                  alt={block.photo.alt}
+                  className="profile-timeline__img"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              {block.photo.caption ? (
+                <figcaption className="profile-timeline__caption">{block.photo.caption}</figcaption>
+              ) : null}
+            </figure>
+            {block.name ? <p className="profile-timeline__name">{block.name}</p> : null}
+            <p className="profile-timeline__intro">{block.intro}</p>
+          </div>
+          <div className="profile-timeline__main">
+            {block.timelineTitle ? (
+              <h3 className="profile-timeline__heading">{block.timelineTitle}</h3>
+            ) : null}
+            <ol className="timeline" aria-label="Experiencia profesional">
+              {block.entries.map((e, i) => (
+                <li
+                  key={`${e.org}-${e.period}`}
+                  className="timeline__item"
+                  style={{ animationDelay: `${0.04 * i}s` }}
+                >
+                  <p className="timeline__period">{e.period}</p>
+                  <p className="timeline__role">{e.role}</p>
+                  <p className="timeline__org">{e.org}</p>
+                  <p className="timeline__body">{e.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      )
     default:
       return null
   }
@@ -163,11 +205,18 @@ export default function App() {
   }, [go, total])
 
   return (
-    <div className="deck">
+    <div className={`deck${slide.id === 'welcome' ? ' deck--welcome' : ''}`}>
       <div className="deck__aurora" aria-hidden="true" />
       <div className="deck__grid" aria-hidden="true" />
 
       <header className="deck__bar">
+        <img
+          src={publicUrl('images/RAS.jpeg')}
+          alt="RAS"
+          className="deck__logo"
+          height={40}
+          decoding="async"
+        />
         <ThemeSwitch theme={theme} setTheme={setTheme} />
       </header>
 
@@ -194,8 +243,12 @@ export default function App() {
         </div>
       </header>
 
-      <main className="slide" aria-live="polite" key={slide.id}>
-        <div className="slide-panel">
+      <main
+        className={`slide${slide.id === 'welcome' ? ' slide--welcome' : ''}`}
+        aria-live="polite"
+        key={slide.id}
+      >
+        <div className={`slide-panel${slide.id === 'welcome' ? ' slide-panel--welcome' : ''}`}>
           <h1 className="slide__title">{slide.title}</h1>
           {slide.lead ? <p className="slide__lead">{slide.lead}</p> : null}
 
